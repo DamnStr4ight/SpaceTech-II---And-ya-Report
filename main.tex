@@ -1,0 +1,129 @@
+\documentclass[a4paper]{report}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{standalone}
+\usepackage{graphicx}
+\usepackage{natbib}
+\bibliographystyle{agsm}
+% \usepackage{url}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{xcolor}
+\usepackage[toc,page]{appendix}
+\usepackage{caption}
+\usepackage[colorinlistoftodos]{todonotes} %change to [disable] to hide todos
+\usepackage[engligh]{babel}
+\usepackage{units}
+\usepackage[amssymb]{SIunits}
+\usepackage{import} % Get correct relative paths in included files
+\usepackage{placeins} %To use \FloatBarrier
+\usepackage{listings} %To attach matlab code
+\usepackage[numbered,framed]{matlab-prettifier} % make matlab code pretty
+\usepackage{xr}
+%vedlegg
+\usepackage{pdfpages}
+\usepackage{kantlipsum}
+%Til og med hit for vedlegg
+\newcommand{\tab}[1]{\hspace{.2\textwidth}\rlap{#1}}
+\newcommand{\contributer}[2]{#2,\textsc{#1}}
+\usepackage[parfill]{parskip}
+
+% Formatering av chapters
+
+\usepackage[T1]{fontenc}
+\usepackage{blindtext, array, color}
+ \definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\usepackage[explicit]{titlesec}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\color{gray75}\thechapter}{20pt}{\begin{tabular}[t]{@{\color{gray75}\vrule width 2pt}>{\hsp}l}#1\end{tabular}}
+
+\linespread{1.15} % Line spacing
+
+% Make matlab code pretty
+\lstset{
+  style              = Matlab-editor,
+  basicstyle         = \mlttfamily,
+  escapechar         = ",
+  mlshowsectionrules = true,
+}
+%attachments%
+
+
+
+
+%--------------------------%
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\begin{document}
+\begingroup\emergencystretch=.3em
+\begin{titlepage}
+    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+    
+    \center % Center everything on the page
+    
+    \textsc{\LARGE Norges teknisk-naturvitenskapelige universitet}\\[1.5cm] % Name of your university/college
+    \textsc{\Large TTT4235 Space Tech II}\\[0.5cm] % Major heading such as course name
+    
+    \HRule \\[0.7cm]
+    { \huge \bfseries \textsc{Andøya rocketlaunch}}\\[0.4cm]
+    \HRule \\[1.5cm]
+    
+    \begin{minipage}{0.75\textwidth}
+    % \centering
+        \emph{Editor:}\\
+        Johan Vårlid\\
+        \emph{Contributors:}\\
+        Andre H Johnsen, Asbjørn Torsvik Krüger, Christer Størdal Gundersen, Fride Nordstrand Nilsen, Galina Sinclair, Gonzalo Herrero Martinez, Halvor Borge, Henrik Gjemdal, Javier Aznar Francisco Palop, Katharina Tunold Unstad, Kristine Klock Fleten, Lidia Luque, Martine Strand, Morten Wiggen Rostad, Rasmus Stene, Robert Rognerud, Simen Heimly, Wilhelm André Mangersnes
+        \end{minipage}
+    
+    ~
+    \newline\\
+    {\large \today}\\[2cm]
+    
+    
+    \includegraphics[scale=1]{General/figures/ntnu-logo.jpg}\\[1cm] 
+    \vfill % Fill the rest of the page with white space
+
+\end{titlepage}
+
+
+%----------------------------------------------------------------------------------------
+%	Begin Document
+%----------------------------------------------------------------------------------------
+\pagenumbering{roman}
+%\listoftodos
+%\import{General/}{forord.tex}
+\newpage
+%\import{General/}{abstract.tex}
+\tableofcontents
+%\listoffigures
+
+%\listoftables
+%\import{General/}{ordforklaringer.tex}
+\newpage
+\pagenumbering{arabic}%switch on page numbering with arabic numbers
+
+\input{General/introduction.tex}
+
+\input{Chapter_1/Chapter1.tex}
+\input{Chapter_2/Chapter2.tex}
+\input{Chapter_3/Chapter3.tex}
+\input{Chapter_4/Chapter4.tex}
+
+\input{General/conclusion.tex}
+
+\bibliography{General/references}
+\newpage %Hack for nice page numbering.
+\pagenumbering{Roman}
+\input{Attachments/attachments.tex}
+
+\end{document}
+
+

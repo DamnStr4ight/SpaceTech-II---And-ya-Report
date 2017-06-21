@@ -1,0 +1,117 @@
+\documentclass[a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{standalone}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage[colorinlistoftodos]{todonotes} %\todo, \missingfigure
+\usepackage[norsk]{babel}
+\usepackage{units}
+\usepackage[amssymb]{SIunits}
+\usepackage{placeins} %To use \FloatBarrier
+\newcommand{\tab}[1]{\hspace{.2\textwidth}\rlap{#1}}
+
+%-----------------------------------------------------------------
+%Når man skirver her, kommer det ikke i teksten
+
+\begin{document}
+    \listoftodos
+
+    \chapter{Eksempelkapittel}
+    
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=1\textwidth]{figures/eksempel.jpg}
+        \caption{
+            Dette er teksten som kommer under bildet. Her kan jeg også sitere bibliografien\cite{databladtemp}.
+        } 
+        \label{fig:eks-stempel}
+    \end{figure}
+    
+    Juster størrelsen på bildet ved å endre \textit{width}.
+    I teksten kan det være at jeg vil referere til en figur. Det gjøres slik ved å bruke figurens ``label-nøkkel'' slik: Figur \ref{fig:eks-stempel}. Her viste jeg også hvordan anførselstegn \textbf{MÅ} brukes. Noen spesialtegn har andre betydninger i latex, slik som \&. Latex bruker dette tegnet til å dele opp tekst i kolonner (eksempelvis vist med tabell \ref{table:gps-points}). For å vise de faktiske tegnene settes en backslash foran.
+    
+    Generell regel i starten:
+    \begin{itemize}
+        \item{Punkt én: Finn ut hva du vil lage, feks en punktliste.}
+        \item{Punkt to: Søk på google etter eksempler.}
+        \item{Punkt tre: Tilpass eksempelet ditt bruk.}
+    \end{itemize}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    Samme hvor mange linjeskift jeg har i koden blir det tolket som et nytt avsnitt. Man kan også tvinge frem et linjeskift med dobbel backslash.\\
+    Da vil teksten begynne på neste linje, uten å bli indentert. Jeg kan også fortsette på neste side, slik. \newpage
+    
+    Det finnes noen lure hurtigtaster. Disse finner du her: \url{https://no.sharelatex.com/learn/Kb/Hotkeys}
+    
+    Et annet lurt verktøy er \textit{todo's}. Da kan vi lage stilige påminnelser, som vi senere kan se i en liste. I tillegg kan vi skjule alle todo-meldinger. \todo{Husk: Todo-meldinger kan slås av og på ved å skrive \textit{disable} i klammeparantesene der todonotes importeres} Mer todo-triksing finnes her \url{http://tug.ctan.org/macros/latex/contrib/todonotes/todonotes.pdf}
+    
+    \missingfigure{Dette er en påminnelse om at vi må huske å sette inn en figur her.}
+    Her skal jeg sitere en artikkel som ligger i General/references.\cite{lenz1990review} Hver referanse har en nøkkel som vi velger selv. \todo[inline]{Merk: hvis kun ett kapittel kompileres ser det ikke bibliografien, og referansene viser [?]. Kun når main.tex kompileres vises referanser skikkelig. Sitering og referering gjøres med nøkler, i dette tilfellet, slik som lenz1990review. Slik oppdateres nummerering av kilder automatisk.}
+    Hvis vi vil lage forskjellige farger på gjøremålene, gjøres det slik.\todo[color=green!40]{Denne er grønn med intensitet 40}
+    
+
+
+    Noen ganger vil vi vise to bilder ved siden av hverandre:
+    \begin{figure}[h!]
+        \begin{minipage}{0.5\textwidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{figures/specimen1.jpg}
+            \caption{Menneske 1} 
+            \label{fig:johan}
+        \end{minipage}
+        \begin{minipage}{0.5\textwidth}
+            \centering
+            \includegraphics[width=0.8\textwidth]{figures/specimen2.jpg}
+            \caption{Menneske 2} 
+            \label{fig:helene}
+        \end{minipage}
+    \end{figure}
+    
+    Andre ganger vil vi lage en tabell. Her benyttes \&-tegnet til å definere kolonner. Indenteringen som er gjort i koden har ingen innvirkning på tabellen, men gjør koden mer oversiktlig. Bokstavene l, c og r øverst bestemmer om teksten i kolonnen skal justeres mot venstre, høyre eller sentreres.
+    
+    \begin{center}
+        \captionof{table}{GPS-punkter}
+        \begin{tabular}{ | l | c | c | c | r | }
+            \hline
+            Point id &       X &       Y & Weight & 		 N\\
+            \hline
+            \hline
+            HAVSTEIN &       0 &       0 &		1 &		39.632\\
+            HMV1     &  794.17 &  1015.5 &		1 &		39.572\\
+            HMV1EX   &     798 &  1003.6 &		1 &		39.565\\
+            MOHOLT   &  296.66 &  2688.4 &		1 &		 39.52\\
+            ST46     &  2831.2 &  2797.7 &		4 &		39.434\\
+            STUBBAN  & -1155.5 &  1793.5 &		1 &		39.606\\
+            \hline
+        \end{tabular}
+        \label{table:gps-points}
+    \end{center}
+
+    Latex gjør det også veldig enkelt å skrive komplekse matematiske formler. For enkle formler bruker vi \$ på begge sider. $E = MC^{2}$
+    Mer avanserte formler med referering lages som i formel \ref{eq:ncr}.
+    
+    \begin{equation}
+        \label{eq:ncr}
+        \left(\!
+        \begin{array}{c}
+          n \\
+          r
+        \end{array}
+        \!\right) = \frac{n!}{r!(n-r)!}
+    \end{equation}
+    
+    \bibliographystyle{ieeetr}
+    \bibliography{General/references}
+
+\end{document}

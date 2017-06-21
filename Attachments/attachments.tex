@@ -1,0 +1,27 @@
+% If you want to reference an attachment, this is how.
+%
+% \ref{appendix:epost-skaar}
+% \ref{appendix:intervju-skaar}
+% \ref{appendix:plan-a}
+%
+% osv
+
+%\documentclass{article}
+%\usepackage{pdfpages}
+%\usepackage{lipsum}
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{10pt}{\huge}
+\titlespacing*{\chapter}
+  {0pt}{5pt}{5pt}
+%Bruk chapter
+%\section{Vedlegg}
+%\chapter{Vedlegg}
+%\tableofcontents
+\appendix
+
+%PDF nr1
+%\includepdf[pages=1, scale=.4, pagecommand={\chapter{Emailkorrespondanse -\\ Skanska v/John Skaar}\label{appendix:epost-skaar}}]{Vedlegg/Emailkorrespondanse-Skanska_v_John_Skaar.pdf}
+%\includepdf[pages=2-, scale=0.6, pagecommand={\thispagestyle{plain}}]{Vedlegg/Emailkorrespondanse-Skanska_v_John_Skaar.pdf}
+
+
+% PDF nrX osv nedover her
